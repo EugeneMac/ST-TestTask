@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.Employees = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Startdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Wagerate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +39,6 @@
             this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Head = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subordinates = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Employees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             this.Employees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Employees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.Name,
+            this.EmpName,
             this.Lastname,
             this.Startdate,
             this.Wagerate,
@@ -60,6 +60,15 @@
             this.Employees.Size = new System.Drawing.Size(899, 150);
             this.Employees.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Employees:";
+            // 
             // id
             // 
             this.id.HeaderText = "ID";
@@ -67,10 +76,10 @@
             this.id.ReadOnly = true;
             this.id.Width = 50;
             // 
-            // Name
+            // EmpName
             // 
-            this.Name.HeaderText = "NAME";
-            this.Name.Name = "Name";
+            this.EmpName.HeaderText = "NAME";
+            this.EmpName.Name = "EmpName";
             // 
             // Lastname
             // 
@@ -108,15 +117,6 @@
             this.Subordinates.HeaderText = "SUBORDINATES";
             this.Subordinates.Name = "Subordinates";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Employees:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,8 +136,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView Employees;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Startdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Wagerate;
@@ -145,7 +146,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn Head;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subordinates;
-        private System.Windows.Forms.Label label1;
     }
 }
 
