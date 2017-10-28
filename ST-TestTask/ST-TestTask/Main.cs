@@ -69,25 +69,33 @@ namespace ST_TestTask
                     foreach (int p_id in db.getSubordinates(id))
                     {
                         subordinatesTotal += CalculateWage
-                                (p_id,
+                                (
+                                p_id,
                                 DateTime.Parse(db.getUserStartDate(p_id)),
                                 Int32.Parse(db.getUserWageRate(p_id)),
                                 db.getUserGroupID(p_id),
-                                dt);
+                                dt
+                                );
                     }
 
-                    if (years > 0 && years < 11)
+                    // if work experience is between 1 and 8 years we pay wagerate + 5% of wagerate per every year but no more than 40% (5$ * 8 years)
+                    // Plus 0.5% of main subordinates total wage
+                    if (years > 0 && years < 9)
                     {
                         result = wageRate + years * wageRate * 0.05;
                         result += subordinatesTotal * 0.005;
                         return result;
                     }
+                    // if work experience is more than 8 years we pay wagerate + 40 % (max) of wagerate
+                    // Plus 0.5% of main subordinates total wage
                     if (years > 8)
                     {
                         result = wageRate + wageRate * 0.4;
                         result += subordinatesTotal * 0.005;
                         return result;
                     }
+                    // if work experience is less than 1 year we pay a wagerate
+                    // Plus 0.5% of main subordinates total wage
                     if (years < 1)
                     {
                         return wageRate + subordinatesTotal * 0.005;
@@ -103,24 +111,32 @@ namespace ST_TestTask
                     foreach (int p_id in GetAllSubordinates(id))
                     {
                         subordinatesTotal += CalculateWage
-                                (p_id,
+                                (
+                                p_id,
                                 DateTime.Parse(db.getUserStartDate(p_id)),
                                 Int32.Parse(db.getUserWageRate(p_id)),
                                 db.getUserGroupID(p_id),
-                                dt);
+                                dt
+                                );
                     }
+                    // if work experience is between 1 and 35 years we pay wagerate + 1% of wagerate per every year but no more than 35% (1$ * 35 years)
+                    // Plus 0.3% of ALL subordinates total wage
                     if (years > 0 && years < 36)
                     {
                         result = wageRate + years * wageRate * 0.01;
                         result += subordinatesTotal * 0.003;
                         return result;
                     }
+                    // if work experience is more than 35 years we pay wagerate + 35 % (max) of wagerate
+                    // Plus 0.3% of ALL subordinates total wage
                     if (years > 35)
                     {
                         result = wageRate + wageRate * 0.35;
                         result += subordinatesTotal * 0.003;
                         return result;
                     }
+                    // if work experience is less than 1 year we pay a wagerate
+                    // Plus 0.5% of ALL subordinates total wage
                     if (years < 1)
                     {
                         return wageRate + subordinatesTotal * 0.005;
@@ -150,6 +166,27 @@ namespace ST_TestTask
             }
 
             return result;
+        }
+
+        public string GetBossName(int id)
+        {
+            string bossId = db.getBossID(id);
+            return bossId==""? "": db.getUserName(Int32.Parse(bossId)) + " " + db.getUserLastName(Int32.Parse(bossId));
+        }
+
+        public string GetSubordinatesNames(int id)
+        {
+            List<int> subordinates = db.getSubordinates(id);
+            String result =String.Empty;
+            if (subordinates.Count > 0)
+            {
+                foreach (int subId in subordinates)
+                {
+                    result += db.getUserName(subId) + " " + db.getUserLastName(subId) + ", ";
+                }
+                return result;
+            }
+            return "";
         }
     }
   

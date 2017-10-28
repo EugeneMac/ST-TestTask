@@ -57,7 +57,7 @@
             this.Subordinates});
             this.Employees.Location = new System.Drawing.Point(12, 49);
             this.Employees.Name = "Employees";
-            this.Employees.Size = new System.Drawing.Size(899, 150);
+            this.Employees.Size = new System.Drawing.Size(844, 193);
             this.Employees.TabIndex = 0;
             // 
             // label1
@@ -74,12 +74,13 @@
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 50;
+            this.id.Width = 30;
             // 
             // EmpName
             // 
             this.EmpName.HeaderText = "NAME";
             this.EmpName.Name = "EmpName";
+            this.EmpName.Width = 70;
             // 
             // Lastname
             // 
@@ -90,11 +91,13 @@
             // 
             this.Startdate.HeaderText = "START DATE";
             this.Startdate.Name = "Startdate";
+            this.Startdate.Width = 70;
             // 
             // Wagerate
             // 
             this.Wagerate.HeaderText = "WAGE RATE";
             this.Wagerate.Name = "Wagerate";
+            this.Wagerate.Width = 60;
             // 
             // Wage
             // 
@@ -118,12 +121,13 @@
             // 
             this.Subordinates.HeaderText = "SUBORDINATES";
             this.Subordinates.Name = "Subordinates";
+            this.Subordinates.Width = 200;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 432);
+            this.ClientSize = new System.Drawing.Size(862, 432);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Employees);
             this.Name = "Form1";

@@ -15,6 +15,13 @@ namespace ST_TestTask
         private string _sPath;
         private string _sSql;
 
+        public string getBossID(int id)
+        {
+            _sSql = @"SELECT id FROM subordinates WHERE subordinate_id = @a";
+            object tempobject = FindInDB(_sSql, id.ToString());
+            return tempobject == null ? "" : tempobject.ToString();
+        }
+
         public List<int> getSubordinates(int id)
         {
             _sSql = @"SELECT subordinate_id FROM subordinates WHERE id = @a";

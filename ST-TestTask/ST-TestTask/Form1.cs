@@ -41,8 +41,8 @@ namespace ST_TestTask
                     person.WAGERATE,
                     String.Format("{0,12:000.00}", main.CalculateWage(person.ID, person.STARTDATE, person.WAGERATE, person.GROUP, dt)),
                     person.GROUP,
-                    "",
-                    ""
+                    main.GetBossName(person.ID),
+                    main.GetSubordinatesNames(person.ID)
                     );
 
             }
