@@ -74,8 +74,10 @@ namespace ST_TestTask
                 _sSql += " INSERT INTO subordinates VALUES(3, 1);";
                 _sSql += " INSERT INTO subordinates VALUES(3, 5);";
                 _sSql += " INSERT INTO subordinates VALUES(9, 7);";
+
+                ExecuteSQL(_sSql, "True", "");
             }
-            ExecuteSQL(_sSql, "True", "");
+            
 
         }
 

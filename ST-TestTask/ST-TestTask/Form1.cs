@@ -14,6 +14,7 @@ namespace ST_TestTask
     {
         
         Main main = new Main();
+        
 
         public Form1()
         {
@@ -22,7 +23,19 @@ namespace ST_TestTask
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           FillTable();
+        }
 
+        private void FillTable()
+        {
+
+            foreach (DataRow dr in Employees.Rows)
+            {
+                foreach (Person person in main.personnel)
+                {
+                    dr["id"] = 
+                }
+            }
         }
     }
 }

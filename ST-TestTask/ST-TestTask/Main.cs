@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 
 namespace ST_TestTask
 {
+   
+
     class Main
     {
-        DB db = new DB();
+       DB db = new DB();
+       public List<Person> personnel = new List<Person>();
 
-       
-
-        public Main()
+       public Main()
         {
             //Load users from DB
             foreach (int id in db.getUsersIDs())
             {
-                Person p = new Person(id, db.getUserName(id), db.getUserLastName(id), db.getUserStartDate(id), Int32.Parse(db.getUserGroupID(id)), Int32.Parse(db.getUserWageRate(id)) );
-
+                Person person = new Person
+                    (id,
+                    db.getUserName(id),
+                    db.getUserLastName(id),
+                    DateTime.Parse(db.getUserStartDate(id)),
+                    Int32.Parse(db.getUserGroupID(id)),
+                    Int32.Parse(db.getUserWageRate(id))
+                    );
+                personnel.Add(person);
             }
 
         }
     }
+  
 }

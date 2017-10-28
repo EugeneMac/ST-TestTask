@@ -14,7 +14,37 @@ namespace ST_TestTask
         private DateTime _startDate;
         private EmpType _groupId;
         private int _wageRate;
-        
+
+
+        public int ID
+        {
+            get { return _id; }
+        }
+
+        public string NAME
+        {
+            get { return _name; }
+        }
+
+        public string LASTNAME
+        {
+            get { return _lastName; }
+        }
+
+        public DateTime STARTDATE
+        {
+            get { return _startDate; }
+        }
+
+        public string GROUP
+        {
+            get { return _groupId.ToString(); }
+        }
+
+        public int WAGERATE
+        {
+            get { return _wageRate; }
+        }
 
         enum EmpType : byte
         {
@@ -23,12 +53,12 @@ namespace ST_TestTask
             Salesman
         }
 
-        public Person(int id, string name, string lastname, string startdate, int groupid, int wagerate)
+        public Person(int id, string name, string lastname, DateTime startdate, int groupid, int wagerate)
         {
             _id = id;
             _name = name;
             _lastName = lastname;
-            _startDate = DateTime.Parse(startdate);
+            _startDate = startdate;
             _groupId = (EmpType)groupid;
             _wageRate = wagerate;
         }
