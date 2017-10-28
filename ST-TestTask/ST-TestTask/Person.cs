@@ -11,18 +11,28 @@ namespace ST_TestTask
         private string _name;
         private string _lastName;
         private int _id;
-        private string _startDate;
-        private int _groupId;
+        private DateTime _startDate;
+        private EmpType _groupId;
         private int _wageRate;
+        
+
+        enum EmpType : byte
+        {
+            Employee = 1,
+            Manager,
+            Salesman
+        }
 
         public Person(int id, string name, string lastname, string startdate, int groupid, int wagerate)
         {
             _id = id;
             _name = name;
             _lastName = lastname;
-            _startDate = startdate;
-            _groupId = groupid;
+            _startDate = DateTime.Parse(startdate);
+            _groupId = (EmpType)groupid;
             _wageRate = wagerate;
         }
+
+        
 }
 }

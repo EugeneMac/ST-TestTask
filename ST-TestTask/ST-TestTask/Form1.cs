@@ -12,7 +12,7 @@ namespace ST_TestTask
 {
     public partial class Form1 : Form
     {
-        DB db = new DB();
+        
         Main main = new Main();
 
         public Form1()
