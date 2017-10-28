@@ -28,14 +28,25 @@ namespace ST_TestTask
 
         private void FillTable()
         {
+            DateTime? dt = null;
 
-            foreach (DataRow dr in Employees.Rows)
+            foreach (Person person in main.personnel)
             {
-                foreach (Person person in main.personnel)
-                {
-                    dr["id"] = 
-                }
+                Employees.Rows.Add
+                    (
+                    person.ID,
+                    person.NAME,
+                    person.LASTNAME,
+                    person.STARTDATE.ToString("d"),
+                    person.WAGERATE,
+                    String.Format("{0,12:000.00}", main.CalculateWage(person.ID, person.STARTDATE, person.WAGERATE, person.GROUP, dt)),
+                    person.GROUP,
+                    "",
+                    ""
+                    );
+
             }
+
         }
     }
 }

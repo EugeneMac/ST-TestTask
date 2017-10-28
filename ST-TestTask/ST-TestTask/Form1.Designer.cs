@@ -101,11 +101,13 @@
             this.Wage.HeaderText = "WAGE";
             this.Wage.Name = "Wage";
             this.Wage.ReadOnly = true;
+            this.Wage.Width = 70;
             // 
             // Group
             // 
             this.Group.HeaderText = "GROUP";
             this.Group.Name = "Group";
+            this.Group.Width = 70;
             // 
             // Head
             // 

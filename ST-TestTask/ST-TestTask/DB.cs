@@ -15,6 +15,12 @@ namespace ST_TestTask
         private string _sPath;
         private string _sSql;
 
+        public List<int> getSubordinates(int id)
+        {
+            _sSql = @"SELECT subordinate_id FROM subordinates WHERE id = @a";
+            return SelectSQL(_sSql, id.ToString()).Select(int.Parse).ToList();
+        }
+
         public string getUserWageRate(int id)
         {
             _sSql = @"SELECT wagerate FROM employees WHERE id = @a";
@@ -53,7 +59,7 @@ namespace ST_TestTask
         public List<int> getUsersIDs()
         {
             _sSql = @"SELECT id FROM employees";
-            return SelectSQL(_sSql).Select(int.Parse).ToList();
+            return SelectSQL(_sSql, "").Select(int.Parse).ToList();
         }
 
         public DB()
@@ -74,6 +80,7 @@ namespace ST_TestTask
                 _sSql += " INSERT INTO subordinates VALUES(3, 1);";
                 _sSql += " INSERT INTO subordinates VALUES(3, 5);";
                 _sSql += " INSERT INTO subordinates VALUES(9, 7);";
+                _sSql += " INSERT INTO subordinates VALUES(9, 3);";
 
                 ExecuteSQL(_sSql, "True", "");
             }
@@ -148,7 +155,7 @@ namespace ST_TestTask
 
         }
 
-        private List<string> SelectSQL(string sSql)
+        private List<string> SelectSQL(string sSql, string par)
         {
             List<string> result = new List<string>();
           
@@ -161,6 +168,7 @@ namespace ST_TestTask
                     using (SQLiteCommand sqlCommand = con.CreateCommand())
                     {
                         sqlCommand.CommandText = sSql;
+                        if (par != "") sqlCommand.Parameters.AddWithValue("@a", par);
                         SQLiteDataReader reader = sqlCommand.ExecuteReader();
 
                         while (reader.Read())
