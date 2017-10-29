@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.Windows.Forms;
 
@@ -95,6 +93,7 @@ namespace ST_TestTask
 
         }
 
+        // Method for executing NonQuery queries
         private int ExecuteSQL(string sSql, string newbase, string par)
         {
             int n = 0;
@@ -123,7 +122,8 @@ namespace ST_TestTask
             return n;
         }
 
-        public object FindInDB(string sSql, string par)
+        // Method for searching for one value
+        private object FindInDB(string sSql, string par)
         {
             object result = null;
             try
@@ -162,6 +162,7 @@ namespace ST_TestTask
 
         }
 
+        //Method for executing queries that return several vallues
         private List<string> SelectSQL(string sSql, string par)
         {
             List<string> result = new List<string>();

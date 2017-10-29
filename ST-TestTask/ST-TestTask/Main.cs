@@ -149,7 +149,7 @@ namespace ST_TestTask
         }
 
        
-
+        //Returns a list of all subordinates for employee (recursively)
         private List<int> GetAllSubordinates(int id)
         {
             List<int> result = new List<int>();
@@ -168,12 +168,14 @@ namespace ST_TestTask
             return result;
         }
 
+        //Returns an employee's boss name
         public string GetBossName(int id)
         {
             string bossId = db.getBossID(id);
             return bossId==""? "": db.getUserName(Int32.Parse(bossId)) + " " + db.getUserLastName(Int32.Parse(bossId));
         }
 
+        // Returns comma delimited string of employee subordinates names
         public string GetSubordinatesNames(int id)
         {
             List<int> subordinates = db.getSubordinates(id);

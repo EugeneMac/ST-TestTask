@@ -26,6 +26,8 @@ namespace ST_TestTask
            CountTotal();
         }
 
+        //Populate an empty table using values taken from Person class
+        //Also calculate wage, define boss name and subordinates
 		private void FillTable()
 		{
 			foreach (Person person in main.personnel)
@@ -46,6 +48,7 @@ namespace ST_TestTask
 
 		}
 
+        // Method for counting a total wage of a personnel, updates label on the form
         private void CountTotal()
         {
             try
@@ -67,6 +70,7 @@ namespace ST_TestTask
           
         }
 
+        //When we change a date, Employees table will be cleared and refreshed with recalculation
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             Employees.Rows.Clear();
